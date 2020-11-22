@@ -1,5 +1,17 @@
 /* Main site style sheet*/
 
+/*.navbar{
+	background: linear-gradient(to bottom, #2a9d8f 10%, #264653 100%);
+}*/
+
 .navbar{
-	background: linear-gradient(to top, #264653 10%,  #2a9d8f 100%);
+	background-color: #264653;
+}
+
+body{
+	background-color: #264653 !important;
+}
+
+.profile{
+	border-radius: 50%;
 }

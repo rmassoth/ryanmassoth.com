@@ -1,51 +1,17 @@
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-	{% load static %}
-	<meta name="viewport" content="width=device-width, intial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" type="text/css" href="{% static 'home/home.css'%}">
-	<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-	<title>
-		Ryan Massoth
-	</title>
-</head>
-
-<body>
-	<nav class='navbar navbar-expand navbar-dark flex-column flex-md-row'>
-		<a class="navbar-brand" href={% url "home:index" %} >RM</a>
-    	<ul class="navbar-nav">
-    		<li class="nav-item">
-				<a class="nav-link" href="/">Home</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/">Stuff</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/">Things</a>
-			</li>
-			<li class="nav-item">	
-				<a class="nav-link" href="/">More Stuff</a>
-			</li>
-		</ul>
-		<ul class="navbar-nav ml-md-auto">
-			<li class="nav-item">
-				<a class="nav-link" href="https://github.com/rmassoth/" target="_blank" ><i class="lab la-github la-2x"></i></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="https://twitter.com/RyanMassoth/" target="_blank"><i class="lab la-twitter la-2x"></i></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="https://linkedin.com/in/rmassoth/" target="_blank"><i class="lab la-linkedin la-2x"></i></a>
-			</li>
-		</ul>
-	</nav>
+{% extends "./base.html" %}
+{% load static %}
 
 {% block maincontent %}
+
+<div class="container text-muted">
+	<div class="d-flex flex-md-row flex-column">
+		<img class='p-2 profile img-fluid' src="{% static 'home/ryan_at_home.png' %}" >
+		<div class="d-flex p-2 flex-column justify-content-center">
+			<h1>Hi,</h1>
+			<h1>I'm Ryan Massoth</h1>
+			<h1>I build powerful apps using Django</h1>
+		</div>
+	</div>
+</div>
+
 {% endblock %}
-
-</html>
-
-{% load bootstrap4 %}
-
-{% bootstrap_css %}
-{% bootstrap_javascript jquery='full' %}
