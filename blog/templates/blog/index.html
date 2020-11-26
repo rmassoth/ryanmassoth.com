@@ -4,8 +4,20 @@
 {% block maincontent %}
 
 <div class="container">
-	<div class="d-flex flex-column">
+	{% for post in object_list  %}
+	<div class="row p-1">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">{{ post.title|title }}</h5>
+					<h6 class="card-subtitle">{{ post.created_at|timesince }} ago</h6>
+					<hr>
+					<p class="card-text">{{ post.body|linebreaks|truncatewords_html:50 }}</p>
+				</div>
+			</div>
+		</div>
 	</div>
+	{% endfor %}
 </div>
 
 {% endblock %}
