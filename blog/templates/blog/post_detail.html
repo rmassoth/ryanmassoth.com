@@ -1,0 +1,21 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block maincontent %}
+
+<div class="container">
+	<div class="row p-1">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">{{ object.title|title }}</h5>
+					<h6 class="card-subtitle">{{ post.created_at|date:"D M jS Y \a\t fA" }}</h6>
+					<hr>
+					<p class="card-text">{{ object.body|linebreaks }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

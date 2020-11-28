@@ -1,0 +1,23 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block maincontent %}
+
+<div class="container">
+	{% for post in object_list  %}
+	<div class="row p-1">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title"><a href="{% url 'blog:post-detail' post.slug %}" class="text-dark" >{{ post.title|title }}</a></h5>
+					<h6 class="card-subtitle">{{ post.created_at|date:"D M jS Y \a\t fA" }}</h6>
+					<hr>
+					<p class="card-text">{{ post.body|linebreaks|truncatewords_html:50 }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+
+{% endblock %}
