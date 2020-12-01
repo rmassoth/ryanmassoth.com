@@ -1,0 +1,14 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block maincontent %}
+
+<div class="container">
+	{% for object in object_list %}
+	<div>
+		{{ object.location.name }}
+	</div>
+	{% endfor %}
+</div>
+
+{% endblock %}
