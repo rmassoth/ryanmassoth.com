@@ -14,7 +14,7 @@ class Index(TemplateView):
 
     Landing page for the examples app.
     """
-    pass
+    template_name = 'examples/index.html'
 
 
 class TravelDataList(ListView):

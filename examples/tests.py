@@ -20,7 +20,13 @@ class TestURLS(TestCase):
     def test_index(self):
         url = reverse('examples:index')
         response = self.client.get(url)
-        self.assertEquals(response.STATUS_CODE, 200)
+        self.assertEquals(response.status_code, 200)
+
+
+    def test_get_traveldata_form(self):
+        url = reverse('examples:create-traveldata')
+        response = self.client.get(url)
+        self.assertContains(response, "<form")
 
 
     def test_post_traveldata(self):
@@ -32,7 +38,7 @@ class TestURLS(TestCase):
         }
         url = reverse('examples:create-traveldata')
         response = self.client.post(url, data=data)
-        self.assertEquals(response.STATUS_CODE, 302)
+        self.assertEquals(response.status_code, 302)
 
 
     def test_traveldata_list(self):
