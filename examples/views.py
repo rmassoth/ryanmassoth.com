@@ -8,6 +8,8 @@ from examples.models import (
     Location,
     TravelData)
 
+from examples.forms import LocationForm
+
 
 class Index(TemplateView):
     """
@@ -37,3 +39,18 @@ class CreateTravelData(CreateView):
     'mode_of_transport',
     'miles_travelled']
     success_url = reverse_lazy('examples:index')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['location_form'] = LocationForm()
+        return context
+
+
+class CreateLocation(CreateView):
+    """
+
+    Create a new Location.
+    """
+    model = Location
+    fields = ['name']
+    success_url = reverse_lazy('examples:create-traveldata')

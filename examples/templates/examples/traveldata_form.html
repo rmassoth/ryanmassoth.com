@@ -5,9 +5,53 @@
 {% block maincontent %}
 
 <div class="container">
-	<form action="/" method="post">
-		{% bootstrap_form form %}
-	</form>
+	<div class='row'>
+		<div class='col-md-12'>
+			<h1>Form Posting Example</h1>
+			<p>
+				This is a sample of posting data to the server with a form. Choose your location from the list or add a new one if yours doesn't exist.
+			</p>
+		</div>
+	</div>
+	<div class='row'>
+		<div class='col-md-6 offset-md-3'>
+			<form action="" method="post">
+				{% bootstrap_form form %}
+				{% csrf_token %}
+				<button class="btn btn-primary" type="submit">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#locationModal">
+  Add location
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="locationModalLabel">Add location</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<form action="{% url 'examples:create-location' %}" method="post">
+      		{% bootstrap_form location_form %}
+      		{% csrf_token %}
+      		<button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}

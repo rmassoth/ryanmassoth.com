@@ -50,3 +50,12 @@ class TestURLS(TestCase):
         url = reverse('examples:traveldata-list')
         response = self.client.get(url)
         self.assertContains(response, 'Los Angeles')
+
+
+    def test_post_location(self):
+        data = {
+            'name': "London, UK"
+        }
+        url = reverse('examples:create-location')
+        response = self.client.post(url, data=data)
+        self.assertEquals(response.status_code, 302)
