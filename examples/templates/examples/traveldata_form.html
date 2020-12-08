@@ -16,18 +16,18 @@
 	<div class='row'>
 		<div class='col-md-6 offset-md-3'>
 			<form action="" method="post">
-				{% bootstrap_form form %}
+				<div>{% bootstrap_field form.location %}
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#locationModal">
+  					Add location</button>
+				</div>
+				<div>{% bootstrap_field form.mode_of_transport %}</div>
+				<div>{% bootstrap_field form.miles_travelled %}</div>
 				{% csrf_token %}
 				<button class="btn btn-primary" type="submit">Submit</button>
 			</form>
 		</div>
 	</div>
 </div>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#locationModal">
-  Add location
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
