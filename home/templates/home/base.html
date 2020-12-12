@@ -13,7 +13,7 @@
 <body class="d-flex flex-column min-vh-100">
 	<!-- Navigation -->
 	<nav class='navbar navbar-expand navbar-dark flex-column flex-md-row'>
-		<a class="navbar-brand" href={% url "home:index" %} >Ryan Massoth</a>
+		<a class="navbar-brand" href="{% url 'home:index' %}" >Ryan Massoth</a>
     	<ul class="navbar-nav">
     		<li class="nav-item">
 				<a class="nav-link" href="{% url 'home:about-me' %}">About Me</a>
@@ -24,8 +24,11 @@
 			<li class="nav-item">
 				<a class="nav-link" href="{% url 'blog:index' %}">Blog</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="{% url 'examples:index' %}">Django Examples</a>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" >Django Examples</a>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="{% url 'examples:traveldata-list' %}" >Forms</a></li>
+				</ul>
 			</li>
 		</ul>
 		<ul class="navbar-nav ml-md-auto">
