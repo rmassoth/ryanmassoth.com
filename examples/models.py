@@ -36,4 +36,4 @@ class TravelData(models.Model):
     miles_travelled = models.FloatField()
 
     class Meta:
-        ordering = ['created_at']
+        ordering = ['-created_at']
