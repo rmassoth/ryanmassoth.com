@@ -38,7 +38,7 @@ class CreateTravelData(CreateView):
     'location',
     'mode_of_transport',
     'miles_travelled']
-    success_url = reverse_lazy('examples:index')
+    success_url = reverse_lazy('examples:traveldata-list')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -52,5 +52,5 @@ class CreateLocation(CreateView):
     Create a new Location.
     """
     model = Location
-    fields = ['name']
+    form_class = LocationForm
     success_url = reverse_lazy('examples:create-traveldata')

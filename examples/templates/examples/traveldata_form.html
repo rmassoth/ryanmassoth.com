@@ -9,8 +9,12 @@
 		<div class='col-md-12'>
 			<h1 class="text-center">Form Posting Example</h1>
 			<p>
-				This is a sample of posting data to the server with a form. Choose your location from the list or add a new one if yours doesn't exist.
+				Posting data with a form to the server is a very common use for Django. I use it in many of my projects for collecting user entered data about activities performed, issues they had, or tracking items. This is a sample of posting data to the server with a form. Choose your location from the list or add a new one if yours doesn't exist. Don't worry about accuracy because this is only a demonstration and the data will be regularly deleted anyway.
 			</p>
+      <p>
+        There are a few issues with this form, for example, the location data is entered by a user so it's prone to errors. In production you would likely want a pre-filled list of locations or a cross-check
+        against a list of cities in the world.
+      </p>
 		</div>
 	</div>
 	<div class='row'>
@@ -43,12 +47,11 @@
       	<form action="{% url 'examples:create-location' %}" method="post">
       		{% bootstrap_form location_form %}
       		{% csrf_token %}
-      		<button class="btn btn-primary" type="submit">Submit</button>
-        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
     </div>
   </div>
