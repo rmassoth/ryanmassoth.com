@@ -12,7 +12,7 @@ class Index(ListView):
     list of most recent posts and be paginated.
     """
     model = Post
-    paginate_by = 30
+    paginate_by = 5
     template_name = 'blog/index.html'
     queryset = Post.objects.filter(published=True).order_by("-created_at")
 
